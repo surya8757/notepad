@@ -1,81 +1,38 @@
-# Python program to illustrate a stop watch
-# using Tkinter
-#importing the required libraries
-import tkinter as Tkinter
-from datetime import datetime
-counter = 66600
-running = False
-def counter_label(label):
-	def count():
-		if running:
-			global counter
-
-			# To manage the initial delay.
-			if counter==66600:			
-				display="Starting..."
-			else:
-				tt = datetime.fromtimestamp(counter)
-				string = tt.strftime("%H:%M:%S")
-				display=string
-
-			label['text']=display # Or label.config(text=display)
-
-			# label.after(arg1, arg2) delays by
-			# first argument given in milliseconds
-			# and then calls the function given as second argument.
-			# Generally like here we need to call the
-			# function in which it is present repeatedly.
-			# Delays by 1000ms=1 seconds and call count again.
-			label.after(1000, count)
-			counter += 1
-
-	# Triggering the start of the counter.
-	count()	
-
-# start function of the stopwatch
-def Start(label):
-	global running
-	running=True
-	counter_label(label)
-	start['state']='disabled'
-	stop['state']='normal'
-	reset['state']='normal'
-
-# Stop function of the stopwatch
-def Stop():
-	global running
-	start['state']='normal'
-	stop['state']='disabled'
-	reset['state']='normal'
-	running = False
-
-# Reset function of the stopwatch
-def Reset(label):
-	global counter
-	counter=66600
-
-	# If rest is pressed after pressing stop.
-	if running==False:	
-		reset['state']='disabled'
-		label['text']='Welcome!'
-
-	# If reset is pressed while the stopwatch is running.
-	else:			
-		label['text']='Starting...'
-
-root = Tkinter.Tk()
-root.title("Stopwatch")
-
-# Fixing the window size.
-root.minsize(width=250, height=70)
-label = Tkinter.Label(root, text="Welcome!", fg="black", font="Verdana 30 bold")
-label.pack()
-f = Tkinter.Frame(root)
-start = Tkinter.Button(f, text='Start', width=6, command=lambda:Start(label))
-stop = Tkinter.Button(f, text='Stop',width=6,state='disabled', command=Stop)
-reset = Tkinter.Button(f, text='Reset',width=6, state='disabled', command=lambda:Reset(label))
-f.pack(anchor = 'center',pady=5)
-start.pack(side="left")
-stop.pack(side ="left")
-reset.pack(side="left")
-root.mainloop()
+-----BEGIN OPENSSH PRIVATE KEY-----
+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
+-----END OPENSSH PRIVATE KEY-----
